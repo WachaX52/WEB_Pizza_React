@@ -1,0 +1,67 @@
+.layout {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: #ff6600;
+    color: #fff;
+  }
+  
+  .logo {
+    margin: 0;
+  }
+  
+  .nav {
+    display: flex;
+  }
+  
+  .nav-link {
+    color: white;
+    margin: 0 15px;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+  .cart-button {
+    background-color: #fff !important;
+    color: #ff6600 !important;
+  }
+  
+  .content {
+    background-color: #f8f8f8;
+    flex: 1;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  .footer {
+    text-align: center;
+    background-color: #ff6600;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .order-form input {
+    width: 100%;
+    padding: 8px;
+  }
+  

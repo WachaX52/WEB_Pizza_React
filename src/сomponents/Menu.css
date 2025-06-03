@@ -1,0 +1,93 @@
+/* Menu.css */
+
+/* Общий фон */
+.menu-container {
+    padding: 40px;
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #fff7ed, #ffedd5);
+  }
+  
+  /* Заголовок */
+  .menu-title {
+    font-size: 40px;
+    font-weight: 800;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #d97706;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Сетка карточек */
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Карточка пиццы */
+  .pizza-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .pizza-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Изображение пиццы */
+  .pizza-img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  /* Информация о пицце */
+  .pizza-info {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .pizza-name {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+  }
+  
+  .pizza-price {
+    font-size: 18px;
+    color: #666;
+    margin-top: 8px;
+  }
+  
+  /* Кнопка */
+  .add-to-cart-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(to right, #f97316, #dc2626);
+    border: none;
+    border-radius: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    width: 100%;
+    margin-top: 15px;
+  }
+  
+  .add-to-cart-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(to right, #ea580c, #b91c1c);
+  }
+  
