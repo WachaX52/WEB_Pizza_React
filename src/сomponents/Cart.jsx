@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { List, Button, Input, Modal } from "antd";
-import "./Cart.css"; // импорт стилей
+import "./Cart.css";
 
 const Cart = ({ cart, removeFromCart }) => {
   const [customerName, setCustomerName] = useState('');
   const [customerPhone, setCustomerPhone] = useState('');
 
   const total = cart.reduce((acc, item) => acc + Number(parseInt(item.price)), 0);
+
+  const validateName = (name) => {
+    const regex = /^[a-zA-Zа-яА-ЯіІїЇєЄґҐ\s'-]{2,}$/;
+    return regex.test(name.trim());
+  };
+
+  const validatePhone = (phone) => {
+    const cleaned = phone.replace(/\s+/g, '');
+    const regex = /^(?:\+380\d{9}|0\d{9})$/;
+    return regex.test(cleaned);
+  };
 
   const saveOrder = async () => {
     if (!customerName || !customerPhone) {
@@ -17,11 +28,28 @@ const Cart = ({ cart, removeFromCart }) => {
       return;
     }
 
+    if (!validateName(customerName)) {
+      Modal.warning({
+        title: "Невірне ім'я",
+        content: "Ім'я повинно містити лише літери і бути не коротше 2 символів.",
+      });
+      return;
+    }
+
+    if (!validatePhone(customerPhone)) {
+      Modal.warning({
+        title: "Невірний номер телефону",
+        content: "Введіть правильний номер у форматі +380XXXXXXXXX або 0XXXXXXXXX.",
+      });
+      return;
+    }
+
     const orderData = {
-      name: customerName,
-      phone: customerPhone,
-      cart: cart,
-      total: total,
+      id: Date.now(),
+      name: customerName.trim(),
+      phone: customerPhone.trim(),
+      cart,
+      total,
     };
 
     try {

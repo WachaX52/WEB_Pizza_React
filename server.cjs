@@ -8,20 +8,18 @@ const PORT = 7008;
 app.use(cors());
 app.use(bodyParser.json());
 
-// Путь к файлу заказов
 const ordersFile = './orders.json';
 
-// Если файла нет — создаем пустой
 if (!fs.existsSync(ordersFile)) {
   fs.writeFileSync(ordersFile, '[]', 'utf8');
 }
 
-// Обработчик для корневого маршрута
+// Обробник для кореневого маршруту
 app.get('/', (req, res) => {
   res.send('Сервер працює');
 });
 
-// Прием замовлення
+// Прийом замовлення
 app.post('/order', (req, res) => {
   const newOrder = req.body;
 
@@ -40,4 +38,21 @@ app.post('/order', (req, res) => {
 // Запуск сервера
 app.listen(PORT, () => {
   console.log(`Сервер запущено на http://localhost:${PORT}`);
+});
+
+app.get('/orders', (req, res) => {
+  const orders = JSON.parse(fs.readFileSync(ordersFile, 'utf8'));
+  res.json(orders);
+});
+
+// Видалити замовлення за ID
+app.delete('/order/:id', (req, res) => {
+  const orderId = req.params.id;
+
+  let orders = JSON.parse(fs.readFileSync(ordersFile, 'utf8'));
+  const updatedOrders = orders.filter(order => String(order.id) !== String(orderId));
+
+  fs.writeFileSync(ordersFile, JSON.stringify(updatedOrders, null, 2), 'utf8');
+
+  res.status(200).send({ message: 'Замовлення видалено' });
 });

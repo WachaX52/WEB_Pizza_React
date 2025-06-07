@@ -4,12 +4,38 @@ import "./Menu.css";
 
 const Menu = ({ addToCart }) => {
   const pizzas = [
-    { name: "Карбонара", price: 350, img: "/img/carbonara.jpg", alt: "carbonara" },
-    { name: "Пепероні", price: 340, img: "/img/peperoni.jpg", alt: "peperoni" },
-    { name: "Чотири сири", price: 300, img: "/img/chees.jpg", alt: "chess" },
-    { name: "Гавайська", price: 250, img: "/img/gavai.jpg", alt: "gavai" },
-    { name: "Шинка", price: 195, img: "/img/vetchina.jpg", alt: "vetchina" },
+    {
+      name: "Карбонара",
+      price: 350,
+      img: `${import.meta.env.BASE_URL}img/carbonara.jpg`,
+      alt: "carbonara"
+    },
+    {
+      name: "Пепероні",
+      price: 340,
+      img: `${import.meta.env.BASE_URL}img/peperoni.jpg`,
+      alt: "peperoni"
+    },
+    {
+      name: "Чотири сири",
+      price: 300,
+      img: `${import.meta.env.BASE_URL}img/chees.jpg`,
+      alt: "chess"
+    },
+    {
+      name: "Гавайська",
+      price: 250,
+      img: `${import.meta.env.BASE_URL}img/gavai.jpg`,
+      alt: "gavai"
+    },
+    {
+      name: "Шинка",
+      price: 195,
+      img: `${import.meta.env.BASE_URL}img/vetchina.jpg`,
+      alt: "vetchina"
+    }
   ];
+  
 
   return (
     <div className="menu-container">

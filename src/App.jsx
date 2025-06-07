@@ -1,5 +1,5 @@
+import { HashRouter, Routes, Route, Link } from "react-router-dom";
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Menu from "./сomponents/MenuPizza";
 import Contact from "./сomponents/ContactPizza";
 import Home from "./сomponents/HomePizza";
@@ -7,6 +7,7 @@ import Cart from "./сomponents/Cart";
 import { Layout, Button, Badge, Modal } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import "./App.css";
+import Orders from "./сomponents/Orders";
 
 const { Header, Footer, Content } = Layout;
 
@@ -66,7 +67,7 @@ const App = () => {
   };
 
   return (
-    <Router>
+    <HashRouter>
       <Layout className="layout">
         <Header className="header">
           <h1 className="logo">Піцерія</h1>
@@ -92,6 +93,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path="/menu" element={<Menu addToCart={addToCart} />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/orders" element={<Orders />} />
           </Routes>
         </Content>
 
@@ -138,7 +140,7 @@ const App = () => {
           </Button>
         </form>
       </Modal>
-    </Router>
+    </HashRouter>
   );
 };
 
